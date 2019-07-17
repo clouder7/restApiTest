@@ -1,0 +1,17 @@
+body {
+    background-image: url("http://getwallpapers.com/wallpaper/full/8/2/3/551157.jpg");
+    background-size: 40%;
+    font-family: font-sans-serif, sans-serif;
+}
+
+fieldset,figcaption,figure,footer,form,h1,h2,
+h3,h4,h5,h6,header,hgroup,html,i,iframe,
+img,label,legend,menu,nav,body,a,b,li,div,em,
+section,small,span,strong,table,tbody,td,th,thead,tr,ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}

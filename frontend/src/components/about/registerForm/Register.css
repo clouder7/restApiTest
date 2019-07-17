@@ -1,0 +1,42 @@
+.simple_form input[type="email"],
+.simple_form input[type="password"],
+.simple_form input[type="text"] {
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    width: 100%;
+    outline: 0;
+    font-family: inherit;
+    resize: vertical;
+    background: #131419;
+    border: 1px solid #0a0b0e;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.simple_form input[type="email"]:hover,
+.simple_form input[type="number"]:hover,
+.simple_form input[type="password"]:hover,
+.simple_form input[type="text"]:hover,
+.simple_form textarea:hover {
+    border-color: #000;
+}
+
+
+
+
+
+
+p.lead {
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 5px;
+    font-weight: 400;
+    color: #9baec8;
+}
+
+div {
+    display: block;
+}
+

@@ -1,0 +1,106 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "4.0.1",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "actor_images",
+              "constraintName" : "pk_actor_images",
+              "columnNames" : "actor_id, image_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4.0.2",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "actor_technology",
+              "constraintName" : "pk_actor_technology",
+              "columnNames" : "actor_id, technology_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4.0.3",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "follows",
+              "constraintName" : "pk_follower_following",
+              "columnNames" : "follower_id, following_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4.0.4",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "post_images",
+              "constraintName" : "pk_post_image_id",
+              "columnNames" : "post_id, image_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4.0.5",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "user_chats",
+              "constraintName" : "pk_chat_user_id",
+              "columnNames" : "chat_id, user_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "4.0.6",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "user_group",
+              "constraintName" : "pk_user_grop_id",
+              "columnNames" : "user_id, group_id"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
