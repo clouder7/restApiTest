@@ -1,6 +1,5 @@
 package com.softserve.ita.sonet.model.entity;
 
-import com.softserve.ita.sonet.model.Status;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +16,7 @@ import java.util.Objects;
 public abstract class BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
 

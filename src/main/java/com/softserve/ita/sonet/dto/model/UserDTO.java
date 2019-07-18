@@ -15,6 +15,7 @@ public class UserDTO {
     private String nickname;
     private String firstName;
     private String lastName;
+    private String token;
     private String password;
     private Status status = Status.NOT_ACTIVE;
     private LocalDateTime updateTime;

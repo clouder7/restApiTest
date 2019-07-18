@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDTO register(RegisterUserRequest requestUser) throws DataAccessException, EmailAlreadyExistException {
 
-        if (!checkIfEmailExist(requestUser.getEmail())) {
+        if (checkIfEmailExist(requestUser.getEmail())) {
             throw new EmailAlreadyExistException("This email already exists");
         }
 

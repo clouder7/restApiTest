@@ -29,6 +29,9 @@ public class User extends Actor {
 
     private String planet;
 
+    @Column(name = "email_verification")
+    private String emailVerificationToken;
+
     @ManyToMany
     @JoinTable(
             name = "follows",

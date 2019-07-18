@@ -101,6 +101,25 @@
           }
         ]
       }
+    },
+    {
+      "changeSet": {
+        "id": "4.0.7",
+        "author": "sonetTeam",
+        "changes": [
+          {
+            "addPrimaryKey": {
+              "catalogName" : "db_sonet",
+              "schemaName" : "db_sonet",
+              "tableName" : "actor_role",
+              "constraintName" : "pk_user_grop_id",
+              "columnNames" : "actor_id, role_id"
+            }
+          }
+        ]
+      }
     }
+
   ]
 }
+

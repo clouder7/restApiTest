@@ -15,7 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,13 +53,21 @@ public class RestAuthController {
     public ResponseEntity login(@Valid @RequestBody LoginUserRequest requestUser) {
         try {
 
-            String email = requestUser.getEmail();
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(email, requestUser.getPassword()));
+            Authentication auth = authenticationManager
+                    .authenticate(new UsernamePasswordAuthenticationToken
+                            ( requestUser.getEmail(), requestUser.getPassword()));
 
-            UserDTO userDTO = userService.findByEmail(email);
+            SecurityContextHolder
+                    .getContext()
+                    .setAuthentication(auth);
 
-            String token = jwtTokenProvider.createToken(email, userDTO.getRoles());
+            UserDTO userDTO = userService
+                    .findByEmail(requestUser.getEmail());
+
+            String token = jwtTokenProvider.
+                    createToken(requestUser.getEmail(), userDTO.getRoles());
+
+            userDTO.setToken(token);
 
             return ResponseEntity.ok(mapper.map(userDTO,LoginUserResponse.class));
 

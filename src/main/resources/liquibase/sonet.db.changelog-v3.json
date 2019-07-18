@@ -48,15 +48,6 @@
               "columns": [
                 {
                   "column": {
-                    "name": "role",
-                    "type": "varchar(25)",
-                    "constraints": {
-                      "nullable": false
-                    }
-                  }
-                },
-                {
-                  "column": {
                     "name": "creation_time",
                     "type": "TIMESTAMP",
                     "defaultValue": "CURRENT_TIMESTAMP()",
@@ -149,6 +140,16 @@
                     "name": "planet",
                     "type": "varchar(100)"
                   }
+                },
+                {
+                  "column": {
+                    "name": "email_verification",
+                    "type": "varchar(100)",
+                    "constraints": {
+                      "nullable": true,
+                      "unique": true
+                    }
+                  }
                 }
               ],
               "schemaName": "db_sonet",
@@ -174,7 +175,6 @@
                     "type": "bigint",
                     "constraints": {
                       "nullable": false,
-                      "unique": true,
                       "foreignKeyName": "fk_actor_id_role",
                       "references": "actors(id)"
 
@@ -187,7 +187,6 @@
                     "type": "bigint",
                     "constraints": {
                       "nullable": false,
-                      "unique": true,
                       "foreignKeyName": "fk_role_id_actor",
                       "references": "roles(id)"
                     }

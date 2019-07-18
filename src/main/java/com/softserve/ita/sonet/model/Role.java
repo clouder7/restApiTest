@@ -32,7 +32,9 @@ public class Role extends BaseEntity {
     }
 
     @Override
-    protected ToStringCreator getToStringCreator() {
-        return super.getToStringCreator().append("name",name);
+    public String toString() {
+        return "Role{" +
+                "id: " + super.getId() + ", " +
+                "name: " + name + "}";
     }
 }

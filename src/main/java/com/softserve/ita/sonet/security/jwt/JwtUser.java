@@ -1,86 +1,62 @@
 package com.softserve.ita.sonet.security.jwt;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
 
-@Data
+
 public class JwtUser implements UserDetails {
+    private String username;
+    private String password;
+    private boolean enabled;
+    private boolean accountNonExpired;
+    private boolean credentialsNonExpired;
+    private boolean accountNonLocked;
+    private Collection<? extends GrantedAuthority> grantedAuthorities;
 
-    private final Long id;
-    private final String nickName;
-    private final String firstName;
-    private final String lastName;
-    private final String password;
-    private final String email;
-    private final boolean enabled;
-    private final LocalDateTime lastPasswordResetDate;
-    private final Collection<? extends GrantedAuthority> authorities;
-
-    public JwtUser(
-            Long id,
-            String nickName,
-            String firstName,
-            String lastName,
-            String password,
-            String email,
-            boolean enabled,
-            LocalDateTime lastPasswordResetDate,
-            Collection<? extends GrantedAuthority> authorities
-    ) {
-        this.id = id;
-        this.nickName = nickName;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public JwtUser(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> grantedAuthorities) {
+        this.username = username;
         this.password = password;
-        this.email = email;
         this.enabled = enabled;
-        this.lastPasswordResetDate = lastPasswordResetDate;
-        this.authorities = authorities;
+        this.accountNonExpired = accountNonExpired;
+        this.credentialsNonExpired = credentialsNonExpired;
+        this.accountNonLocked = accountNonLocked;
+        this.grantedAuthorities = grantedAuthorities;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return grantedAuthorities;
     }
 
-    @JsonIgnore
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
-    @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return accountNonExpired;
     }
 
-    @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return accountNonLocked;
     }
 
-    @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return credentialsNonExpired;
     }
-
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
-
 }

@@ -17,8 +17,6 @@ import java.util.List;
 @Table(name = "channels")
 public class Channel extends NamedEntity {
 
-    private String description;
-
     @ManyToOne
     @JoinColumn(name = "chat_id")
     private Chat chat;

@@ -6,10 +6,8 @@ import lombok.Setter;
 import org.springframework.core.style.ToStringCreator;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Getter
@@ -19,9 +17,16 @@ import java.util.Objects;
 @MappedSuperclass
 public abstract class CreatedEntity extends BaseEntity {
 
+    @PrePersist
+    public void beforeSave(){
+        creationTime = LocalDateTime.now();
+        updateTime = LocalDateTime.now();
+    }
+
     @Column(name = "creation_time")
     @DateTimeFormat(pattern = "hh:mm:ss dd/MM/yyyy")
-    protected LocalDateTime creationTime;
+    protected LocalDateTime creationTime ;
+
 
     @Column(name = "update_time")
     @DateTimeFormat(pattern = "hh:mm:ss dd/MM/yyyy")
@@ -30,8 +35,8 @@ public abstract class CreatedEntity extends BaseEntity {
     @Override
     protected ToStringCreator getToStringCreator() {
         return super.getToStringCreator()
-                .append("creationTime", getCreationTime().format(DateTimeFormatter.ISO_DATE_TIME))
-                .append("lastUpdateTime", getUpdateTime().format(DateTimeFormatter.ISO_DATE_TIME));
+                .append("creationTime", getCreationTime())
+                .append("lastUpdateTime", getUpdateTime());
     }
 
     @Override

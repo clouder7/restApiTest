@@ -17,14 +17,12 @@ public class JwtUserFactory {
     }
     public static JwtUser userToJwtUser(UserDTO user){
         return new JwtUser(
-                user.getId(),
-                user.getNickname(),
-                user.getFirstName(),
-                user.getLastName(),
                 user.getEmail(),
                 user.getPassword(),
                 user.getStatus().equals(Status.ACTIVE),
-                user.getUpdateTime(),
+                true,
+                true,
+                true,
                 mapToGrandAuthorities(new ArrayList<>(user.getRoles()))
                 );
     }
